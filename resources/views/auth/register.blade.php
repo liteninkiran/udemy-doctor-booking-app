@@ -39,7 +39,7 @@
                             <div class="row mb-3">
                                 <label for="gender" class="col-md-4 col-form-label text-md-end">{{ __('Gender') }}</label>
                                 <div class="col-md-6">
-                                    <select name="gender" id="gender" class="form-control">
+                                    <select name="gender" id="gender" class="form-control @error('gender') is-invalid @enderror">
                                         <option value="null" disabled {{ old('gender') === null ? 'selected' : '' }}>Please select...</option>
                                         <option value="male" {{ old('gender') === 'male' ? 'selected' : '' }}>Male</option>
                                         <option value="female" {{ old('gender') === 'female' ? 'selected' : '' }}>Female</option>
