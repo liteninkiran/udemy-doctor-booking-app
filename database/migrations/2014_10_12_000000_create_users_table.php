@@ -22,7 +22,7 @@ class CreateUsersTable extends Migration
             $table->foreignId('role_id')->constrained();
             $table->string('address')->nullable();
             $table->string('phone_number')->nullable();
-            $table->string('department')->nullable();
+            $table->foreignId('department_id')->nullable()->constrained();
             $table->string('image')->nullable();
             $table->string('education')->nullable();
             $table->text('description')->nullable();

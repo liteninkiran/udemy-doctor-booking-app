@@ -19,7 +19,6 @@ class CreateBookingsTable extends Migration
             $table->unsignedBigInteger('doctor_id');
             $table->string('time');
             $table->integer('status')->default(0);
-            $table->string('date');
             $table->timestamps();
 
             $table->foreign('doctor_id')->references('id')->on('users');
