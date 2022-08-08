@@ -13,7 +13,7 @@
             <!-- Body -->
             <div class="modal-body">
                 <p><img src="{{asset('images')}}/{{$user->image}}" class="table-user-thumb" alt="" width="200"></p>
-                <p class="badge badge-pill badge-dark">Role:{{ $user->role->name }}</p>
+                <p class="badge badge-pill badge-dark">{{ ucfirst($user->role->name) }}</p>
                 <p>Gender: {{ ucfirst($user->gender) }}</p>
                 <p>Name: {{ $user->name }}</p>
                 <p>Email: {{ $user->email }}</p>
