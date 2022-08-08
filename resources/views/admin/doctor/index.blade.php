@@ -31,7 +31,6 @@
 
 </div>
 
-
 <div class="row">
 
     <div class="col-md-12">
@@ -89,18 +88,18 @@
                                     </td>
                                     <td>x</td>
                                 </tr>
-            
+
                                 <!-- View Modal -->
-                                @include('admin.doctor.model')
+                                @include('admin.doctor.modal')
 
                             @endforeach
-                    
+
                         @else
 
                             <td>No user to display</td>
 
                         @endif
-                    
+
                     </tbody>
 
                 </table>

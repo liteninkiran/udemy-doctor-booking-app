@@ -26,6 +26,7 @@ class UserFactory extends Factory
             'phone_number' => $this->faker->phoneNumber,
             'education' => $this->faker->creditCardType,
             'description' => $this->faker->paragraph,
+            'image' => 'default-profile.png',
             'department_id' => Department::inRandomOrder()->first()->id,
             'gender' => $this->faker->shuffle(['male', 'female'])[0],
             'remember_token' => Str::random(10),

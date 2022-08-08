@@ -14,14 +14,14 @@
             <div class="modal-body">
                 <p><img src="{{asset('images')}}/{{$user->image}}" class="table-user-thumb" alt="" width="200"></p>
                 <p class="badge badge-pill badge-dark">Role:{{ $user->role->name }}</p>
-                <p>Name:{{ $user->gender }}</p>
-                <p>Name:{{ $user->name }}</p>
-                <p>Email:{{ $user->email }}</p>
-                <p>Address:{{ $user->address }}</p>
-                <p>Phone number:{{ $user->phone_number }}</p>
-                <p>Department:{{ $user->department->department }}</p>
-                <p>Education:{{ $user->education }}</p>
-                <p>About:{{ $user->description }}</p>
+                <p>Gender: {{ ucfirst($user->gender) }}</p>
+                <p>Name: {{ $user->name }}</p>
+                <p>Email: {{ $user->email }}</p>
+                <p>Address: {{ $user->address }}</p>
+                <p>Phone number: {{ $user->phone_number }}</p>
+                <p>Department: {{ $user->department->department }}</p>
+                <p>Education: {{ $user->education }}</p>
+                <p>About: {{ $user->description }}</p>
             </div>
 
             <!-- Close -->
