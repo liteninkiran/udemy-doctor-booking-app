@@ -60,7 +60,6 @@
                             <th>Name</th>
                             <th class="nosort">Avatar</th>
                             <th>Email</th>
-                            <th>Address</th>
                             <th>Phone number</th>
                             <th>Department</th>
                             <th class="nosort">&nbsp;</th>
@@ -71,7 +70,7 @@
                     <!-- Table Body -->
                     <tbody>
 
-                        @if(count($users)>0)
+                        @if(count($users) > 0)
 
                             @foreach($users as $user)
 
@@ -79,7 +78,6 @@
                                     <td>{{ $user->name }}</td>
                                     <td><img src="{{asset('images')}}/{{$user->image}}" class="table-user-thumb" alt=""></td>
                                     <td>{{ $user->email }}</td>
-                                    <td>{{ $user->address }}</td>
                                     <td>{{ $user->phone_number }}</td>
                                     <td>{{ $user->department->department }}</td>
                                     <td>

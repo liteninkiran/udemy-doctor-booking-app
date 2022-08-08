@@ -202,7 +202,6 @@
                             <div class="form-group">
                                 <label>Image</label>
                                 <input type="file" class="form-control file-upload-info @error('image') is-invalid @enderror" placeholder="Upload Image" name="image">
-                                <span class="input-group-append"></span>
                                 @error('image')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
