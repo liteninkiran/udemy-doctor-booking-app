@@ -6,7 +6,7 @@
                     <div class="sidebar-header">
 
                         <!-- Brand Name -->
-                        <a class="header-brand" href="index.html">
+                        <a class="header-brand" href="{{ url('dashboard') }}">
                             <span class="text">Doctor Booking</span>
                         </a>
 
