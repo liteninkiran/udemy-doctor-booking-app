@@ -54,6 +54,8 @@
 
             <!-- Body -->
             <div class="card-body">
+
+                <!-- Form -->
                 <form class="forms-sample" action="{{route('doctor.update',[$user->id])}}" method="post" enctype="multipart/form-data">
 
                     <!-- Tokens -->
@@ -65,24 +67,28 @@
 
                         <!-- Full Name -->
                         <div class="col-lg-6">
-                            <label for="">Full name</label>
-                            <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" placeholder="doctor name" value="{{ $user->name }}">
-                            @error('name')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
+                            <div class="form-group">
+                                <label for="">Full Name</label>
+                                <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" placeholder="Doctor name" value="{{ $user->name }}">
+                                @error('name')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
                         </div>
 
                         <!-- Email -->
                         <div class="col-lg-6">
-                            <label for="">Email</label>
-                            <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" placeholder="email"value="{{ $user->email }}">
-                            @error('email')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
+                            <div class="form-group">
+                                <label for="">Email</label>
+                                <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" placeholder="Email"value="{{ $user->email }}">
+                                @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
                         </div>
 
                     </div>
@@ -92,29 +98,34 @@
 
                         <!-- Password -->
                         <div class="col-lg-6">
-                            <label for="">Password</label>
-                            <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" placeholder="doctor password">
-                            @error('password')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
+                            <div class="form-group">
+                                <label for="">Password</label>
+                                <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" placeholder="Doctor password">
+                                @error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
                         </div>
 
                         <!-- Gender -->
                         <div class="col-lg-6">
-                            <label for="">Gender</label>
-                            <select class="form-control @error('gender') is-invalid @enderror" name="gender">
-                                @foreach(['male', 'female'] as $gender)
-                                    <option value="{{$gender}}" @if($user->gender === $gender) selected @endif>{{ ucfirst($gender) }}</option>
-                                @endforeach
-                            </select>
-                            @error('gender')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
+                            <div class="form-group">
+                                <label for="">Gender</label>
+                                <select class="form-control @error('gender') is-invalid @enderror" name="gender">
+                                    @foreach(['male', 'female'] as $gender)
+                                        <option value="{{$gender}}" @if($user->gender === $gender) selected @endif>{{ ucfirst($gender) }}</option>
+                                    @endforeach
+                                </select>
+                                @error('gender')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
                         </div>
+
                     </div>
 
                     <!-- Education / Address -->
@@ -122,24 +133,28 @@
 
                         <!-- Education -->
                         <div class="col-lg-6">
-                            <label for="">Education</label>
-                            <input type="text" name="education" class="form-control @error('education') is-invalid @enderror" placeholder="doctor highest degree" value="{{ $user->education }}">
-                            @error('education')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
+                            <div class="form-group">
+                                <label for="">Education</label>
+                                <input type="text" name="education" class="form-control @error('education') is-invalid @enderror" placeholder="Highest degree" value="{{ $user->education }}">
+                                @error('education')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
                         </div>
 
                         <!-- Address -->
                         <div class="col-lg-6">
-                            <label for="">Address</label>
-                            <input type="text" name="address" class="form-control @error('address') is-invalid @enderror" placeholder="doctor address" value="{{ $user->address }}">
-                            @error('address')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
+                            <div class="form-group">
+                                <label for="">Address</label>
+                                <input type="text" name="address" class="form-control @error('address') is-invalid @enderror" placeholder="Doctor address" value="{{ $user->address }}">
+                                @error('address')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
                         </div>
 
                     </div>
@@ -167,14 +182,13 @@
                         <!-- Phone Number -->
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="">Phone number</label>
-                                <input type="text" name="phone_number" class="form-control @error('phone_number') is-invalid @enderror"value="{{ $user->phone_number }}">
+                                <label for="">Phone Number</label>
+                                <input type="text" name="phone_number" class="form-control @error('phone_number') is-invalid @enderror" placeholder="Phone number" value="{{ $user->phone_number }}">
                                 @error('phone_number')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-                        
                             </div>
                         </div>
 
@@ -201,9 +215,9 @@
                         <div class="col-md-6">
                             <label>Role</label>
                             <select name="role_id" class="form-control @error('role_id') is-invalid @enderror">
-                                <option value="">Please select role</option>
+                                <option value="">Select...</option>
                                 @foreach($roles as $role)
-                                    <option value="{{$role->id}}"@if($user->role_id==$role->id)selected @endif>{{$role->name}}</option>
+                                    <option value="{{$role->id}}"@if($user->role_id==$role->id)selected @endif>{{ ucfirst($role->name) }}</option>
                                 @endforeach
                             </select>
                             @error('role_id')
@@ -218,9 +232,7 @@
                     <!-- About -->
                     <div class="form-group">
                         <label for="description">About</label>
-                        <textarea class="form-control @error('description') is-invalid @enderror" id="description" rows="4" name="description">
-                            {{$user->description}}
-                        </textarea>
+                        <textarea class="form-control @error('description') is-invalid @enderror" id="description" rows="4" placeholder="Please provide some details about yourself" name="description">{{$user->description}}</textarea>
                         @error('description')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
