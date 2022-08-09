@@ -22,7 +22,7 @@ class Doctor
         if(Auth::user()->role->name === 'doctor') {
             return $next($request);
         } else {
-            return redirect()->back();
+            return redirect('dashboard')->with('error', 'Not Authorised');
         }
     }
 }

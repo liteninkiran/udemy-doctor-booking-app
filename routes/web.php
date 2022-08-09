@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DoctorController;
+use App\Http\Controllers\AppointmentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,4 +30,11 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::group(['middleware' => ['auth', 'admin']], function() {
     Route::resource('doctor', DoctorController::class);
+});
+
+Route::group(['middleware' => ['auth', 'doctor']], function() {
+    //Route::resource('appointment', AppointmentController::class);
+    Route::get('/appointment', [AppointmentController::class, 'index']);
+    Route::post('/appointment/check', [AppointmentController::class, 'check'])->name('appointment.check');
+    Route::post('/appointment/update', [AppointmentController::class, 'updateTime'])->name('update');
 });
