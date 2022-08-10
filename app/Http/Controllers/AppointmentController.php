@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Auth;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Validation\Rule;
 use App\Models\Appointment;
 use App\Models\Time;
 use App\Models\Prescription;
@@ -41,7 +42,8 @@ class AppointmentController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'date' => ['required', 'unique:appointments,date,NULL,id,user_id,' . Auth::id(), 'date_format:Y-m-d'],
+            // 'date' => ['required', 'unique:appointments,date,NULL,id,user_id,' . Auth::id(), 'date_format:Y-m-d'],
+            'date' => ['required', 'date_format:Y-m-d', Rule::unique('appointments')->where(fn ($query) => $query->where('user_id', auth()->user()->id))],
             'time' => ['required'],
         ]);
 
