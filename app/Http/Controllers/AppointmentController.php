@@ -41,7 +41,7 @@ class AppointmentController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'date' => ['required', 'unique:appointments,date,NULL,id,user_id,' . Auth::id()],
+            'date' => ['required', 'unique:appointments,date,NULL,id,user_id,' . Auth::id(), 'date_format:Y-m-d'],
             'time' => ['required'],
         ]);
 
@@ -85,7 +85,7 @@ class AppointmentController extends Controller
      * @return Response
      */
     public function updateTime(Request $request) {
-        $appointmentId = $request->appoinmentId;
+        $appointmentId = $request->appointmentId;
         $appointment = Time::where('appointment_id', $appointmentId)->delete();
         foreach($request->time as $time) {
             Time::create([

@@ -33,8 +33,8 @@ Route::group(['middleware' => ['auth', 'admin']], function() {
 });
 
 Route::group(['middleware' => ['auth', 'doctor']], function() {
-    Route::get('/appointment', [AppointmentController::class, 'index']);
-    Route::post('/appointment', [AppointmentController::class, 'store'])->name('appointment.store');;
+    Route::get('/appointment', [AppointmentController::class, 'index'])->name('appointment.index');
+    Route::post('/appointment', [AppointmentController::class, 'store'])->name('appointment.store');
     Route::get('/appointment/create', [AppointmentController::class, 'create']);
     Route::post('/appointment/check', [AppointmentController::class, 'check'])->name('appointment.check');
     Route::post('/appointment/update', [AppointmentController::class, 'updateTime'])->name('update');
