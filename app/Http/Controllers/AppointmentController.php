@@ -18,7 +18,7 @@ class AppointmentController extends Controller
      */
     public function index()
     {
-        $myAppointments = Appointment::latest()->where('user_id', auth()->user()->id)->get();
+        $myAppointments = Appointment::latest('date')->where('user_id', auth()->user()->id)->get();
         return view('admin.appointment.index',compact('myAppointments'));
     }
 
@@ -61,50 +61,11 @@ class AppointmentController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
+     * Check something...
      *
      * @param  Request  $request
-     * @param  int  $id
      * @return Response
      */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
-
     public function check(Request $request) {
         $date = $request->date;
         $appointment= Appointment::where('date', $date)->where('user_id', auth()->user()->id)->first();
@@ -117,6 +78,12 @@ class AppointmentController extends Controller
         return view('admin.appointment.index', compact('times', 'appointmentId', 'date'));
     }
 
+    /**
+     * Update something...
+     *
+     * @param  Request  $request
+     * @return Response
+     */
     public function updateTime(Request $request) {
         $appointmentId = $request->appoinmentId;
         $appointment = Time::where('appointment_id', $appointmentId)->delete();
