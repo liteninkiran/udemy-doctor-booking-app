@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\FrontendController;
+use App\Http\Controllers\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,9 +22,7 @@ Route::get('/', [FrontendController::class, 'index']);
 Route::post('/book/appointment',[FrontendController::class, 'store'])->name('booking.appointment');
 Route::get('/appointment/{doctorId}/{date}', [AppointmentController::class, 'show'])->name('appointment.show');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-});
+Route::get('/dashboard', [DashboardController::class, 'index']);
 
 Auth::routes();
 
