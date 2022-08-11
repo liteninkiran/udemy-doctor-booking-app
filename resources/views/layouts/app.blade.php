@@ -73,6 +73,14 @@
 
                         <!-- Right Side Of Navbar -->
                         <ul class="navbar-nav ms-auto">
+
+                            <!-- My Bookings -->
+                            @if(auth()->check()&& auth()->user()->role->name === 'patient')
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('my.booking') }}" style="color: #fff; font-size:16px; font-weight: bold;">{{ __('My Booking') }}</a>
+                                </li>
+                            @endif
+
                             <!-- Authentication Links -->
                             @guest
                                 @if (Route::has('login'))

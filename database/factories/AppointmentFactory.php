@@ -15,14 +15,14 @@ class AppointmentFactory extends Factory
     public function definition()
     {
         // Find a random doctor
-        $user = User::whereHas('role', function($q) {
+        $doctor = User::whereHas('role', function($q) {
             $q->where('name', '=', 'doctor');
         })->inRandomOrder()->first();
 
         $date = $this->faker->dateTimeBetween($startDate = 'now', $endDate = '+1 month');
 
         return [
-            'user_id' => $user->id,
+            'user_id' => $doctor->id,
             'date' => $date->format('Y-m-d'),
         ];
     }

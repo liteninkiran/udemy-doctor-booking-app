@@ -15,7 +15,7 @@ class CreateTimesTable extends Migration
     {
         Schema::create('times', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('appointment_id')->constrained();
+            $table->foreignId('appointment_id')->constrained()->onDelete('cascade');
             $table->string('time');
             $table->integer('status')->default(0);
             $table->timestamps();

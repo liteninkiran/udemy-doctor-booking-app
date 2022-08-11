@@ -33,7 +33,7 @@ class FrontendController extends Controller
         $request->validate(['time' => 'required']);
         $check = $this->checkBookingTimeInterval();
         if($check) {
-            return redirect()->back()->with('message', 'You have already booked an appointment. Please wait to make next appointment.');
+            return redirect()->back()->with('message', 'You have already booked an appointment today. Please wait until tomorrow to make your next appointment.');
         }
 
         Booking::create([
@@ -78,5 +78,11 @@ class FrontendController extends Controller
             ->where('user_id', auth()->user()->id)
             ->whereDate('created_at', date('Y-m-d'))
             ->exists();
+    }
+
+    public function myBookings()
+    {
+        $appointments = Booking::latest()->where('user_id', auth()->user()->id)->get();
+        return view('booking.index', compact('appointments'));
     }
 }
