@@ -39,6 +39,15 @@
                                     </div>
                                 </div>
 
+                                <!-- Doctors -->
+                                <div class="nav-item has-sub">
+                                    <a href="javascript:void(0)"><i class="ik ik-layers"></i><span>Appointment Times</span></a>
+                                    <div class="submenu-content">
+                                        <a href="{{ route('appointment.index') }}" class="menu-item">View All</a>
+                                        <a href="{{ route('appointment.create') }}" class="menu-item">Create</a>
+                                    </div>
+                                </div>
+
                             </nav>
 
                         </div>

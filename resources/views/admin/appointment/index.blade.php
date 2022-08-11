@@ -81,7 +81,7 @@
     </form>
 
     @if(Route::is('appointment.check'))
-        <form action="{{route('update')}}" method="post">
+        <form action="{{route('appointment.update')}}" method="post">
             
             <!-- Tokens -->
             @csrf
@@ -103,7 +103,7 @@
                     <table class="table table-striped">
 
                         <tbody>
-                            <input type="hidden" name="appointmentId" value="{{$appointmentId}}">
+                            <input type="hidden" name="appointmentId" value="{{ $appointmentId }}">
                             <tr>
                                 <th scope="row">1</th>
                                 <td><input type="checkbox" name="time[]"  value="6am" @if(isset($times)){{$times->contains('time','6am')?'checked':''}}@endif> 6am</td>
@@ -239,7 +239,7 @@
 
     @else
 
-        <h3>Your Appointment Time List: {{$myAppointments->count()}}</h3>
+        <h3>Your Appointment Time List: {{ $myAppointments->count() }}</h3>
 
         <table class="table table-striped">
 
