@@ -10,12 +10,15 @@
             <div class="col-md-3">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="text-center">Doctor Information</h4>
+                        <h4 class="text-center mb-3">Doctor Information</h4>
                         <img  src="{{ asset('images') }}/{{ $user->image }}" width="100px" style="border-radius: 50%;" >
                         <br>
-                    <p class="lead"> Name: {{ $user->name }}</p>
-                    <p class="lead"> Degree: {{ $user->education }}</p>
-                    <p class="lead"> Department: {{ $user->department->department }}</p>
+                        <table class="mt-4" style="font-size: 1.2em;">
+                            <tr><th>Name</th><td>{{ $user->name }}</td></tr>
+                            <tr><th>Degree</th><td>{{ $user->education }}</td></tr>
+                            <tr><th>Gender</th><td>{{ ucfirst($user->gender) }}</td></tr>
+                            <tr><th class="pe-3">Department</th><td>{{ $user->department->department }}</td></tr>
+                        </table>
                     </div>
                 </div>
             </div>
