@@ -28,7 +28,7 @@ class HomeController extends Controller
         if($roleName === 'admin' || $roleName === 'doctor') {
             return redirect()->to('/dashboard');
         } else {
-            return view('home');
+            return redirect()->to('/');
         }
     }
 }
