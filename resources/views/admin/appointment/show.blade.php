@@ -49,7 +49,7 @@
                     @csrf
 
                     <!-- Card -->
-                    <div class="card">
+                    <div class="card mb-4">
 
                         <!-- Card Header -->
                         <div class="card-header lead">
@@ -60,7 +60,7 @@
                         <div class="card-body">
                             <div class="row">
                                 @foreach($times as $time)
-                                    <div class="col-md-3">
+                                    <div class="col-md-3 mb-2">
                                         <label class="btn btn-outline-primary">
                                             <input type="radio" name="time" value="{{ $time->time }}">
                                             <span>{{ $time->time }}</span>
