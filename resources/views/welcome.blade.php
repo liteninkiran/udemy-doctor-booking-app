@@ -81,12 +81,12 @@
 
                     <!-- Table Body -->
                     <tbody>
-                       @forelse($doctors as $doctor)
+                       @forelse($appointments as $appointment)
                             <tr>
-                                <td><img src="{{asset('images')}}/{{$doctor->image}}" width="50px" style="border-radius: 50%;"></td>
-                                <td class="align-middle">{{ $doctor->name }}</td>
-                                <td class="align-middle">{{ $doctor->department->department }}</td>
-                                <td class="align-middle"><a href="{{ route('appointment.create', [$doctor->user_id, $doctor->date]) }}"><button class="btn btn-success">Book Appointment</button></a></td>
+                                <td><img src="{{asset('images')}}/{{$appointment->doctor->image}}" width="50px" style="border-radius: 50%;"></td>
+                                <td class="align-middle">{{ $appointment->doctor->name }}</td>
+                                <td class="align-middle">{{ $appointment->doctor->department->department }}</td>
+                                <td class="align-middle"><a href="{{ route('appointment.show', [$appointment->user_id, $appointment->date]) }}"><button class="btn btn-success">Book Appointment</button></a></td>
                             </tr>
                         @empty
                             <td>No doctors available today</td>

@@ -6,8 +6,9 @@ use Auth;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Validation\Rule;
-use App\Models\Appointment;
+use App\Models\User;
 use App\Models\Time;
+use App\Models\Appointment;
 use App\Models\Prescription;
 
 class AppointmentController extends Controller
@@ -36,7 +37,7 @@ class AppointmentController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  Request  $request
+     * @param Request $request
      * @return Response
      */
     public function store(Request $request)
@@ -63,7 +64,25 @@ class AppointmentController extends Controller
     }
 
     /**
-     * Check something...
+     * Store a newly created resource in storage.
+     *
+     * @param Request $request
+     * @param int $doctorId
+     * @param string $date
+     * @return Response
+     */
+    public function show(Request $request, int $doctorId, string $date)
+    {
+        $appointment = Appointment::where('user_id', $doctorId)->where('date', $date)->first();
+        $times = Time::where('appointment_id', $appointment->id)->where('status', 0)->get();
+        $user = User::where('id', $doctorId)->first();
+        $doctor_id = $doctorId;
+
+        return view('admin.appointment.show', compact('times', 'date', 'user', 'doctor_id'));
+    }
+
+    /**
+     * Check appointment
      *
      * @param  Request  $request
      * @return Response
@@ -81,7 +100,7 @@ class AppointmentController extends Controller
     }
 
     /**
-     * Update something...
+     * Update appointment
      *
      * @param  Request  $request
      * @return Response
