@@ -11,7 +11,7 @@
                 <div class="card">
                     <div class="card-body">
                         <h4 class="text-center">Doctor Information</h4>
-                        <img  src="{{ asset('images') }}/{ {$user->image }}" width="100px" style="border-radius: 50%;" >
+                        <img  src="{{ asset('images') }}/{{ $user->image }}" width="100px" style="border-radius: 50%;" >
                         <br>
                     <p class="lead"> Name: {{ $user->name }}</p>
                     <p class="lead"> Degree: {{ $user->education }}</p>
