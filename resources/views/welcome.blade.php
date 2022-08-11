@@ -82,11 +82,11 @@
                     <!-- Table Body -->
                     <tbody>
                        @forelse($appointments as $appointment)
-                            <tr>
+                            <tr class="align-middle">
                                 <td><img src="{{asset('images')}}/{{$appointment->doctor->image}}" width="50px" style="border-radius: 50%;"></td>
-                                <td class="align-middle">{{ $appointment->doctor->name }}</td>
-                                <td class="align-middle">{{ $appointment->doctor->department->department }}</td>
-                                <td class="align-middle"><a href="{{ route('appointment.show', [$appointment->user_id, $appointment->date]) }}"><button class="btn btn-success">Book Appointment</button></a></td>
+                                <td>{{ $appointment->doctor->name }}</td>
+                                <td>{{ $appointment->doctor->department->department }}</td>
+                                <td><a href="{{ route('appointment.show', [$appointment->user_id, $appointment->date]) }}"><button class="btn btn-success">Book Appointment</button></a></td>
                             </tr>
                         @empty
                             <td>No doctors available today</td>
