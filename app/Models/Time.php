@@ -20,4 +20,7 @@ class Time extends Model
         'status',
     ];
 
+    public function appointment() {
+        return $this->belongsTo(Appointment::class);
+    }
 }

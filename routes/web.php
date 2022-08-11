@@ -18,8 +18,8 @@ use App\Http\Controllers\FrontendController;
 */
 
 Route::get('/', [FrontendController::class, 'index']);
-Route::get('/appointment/{doctorId}/{date}', [AppointmentController::class, 'show'])->name('appointment.show');
 Route::post('/book/appointment',[FrontendController::class, 'store'])->name('booking.appointment');
+Route::get('/appointment/{doctorId}/{date}', [AppointmentController::class, 'show'])->name('appointment.show');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
