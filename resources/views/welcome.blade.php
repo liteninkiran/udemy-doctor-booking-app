@@ -83,7 +83,7 @@
                     <tbody>
                        @forelse($appointments as $appointment)
                             <tr class="align-middle">
-                                <td><img src="{{asset('images')}}/{{$appointment->doctor->image}}" width="50px" style="border-radius: 50%;"></td>
+                                <td><img src="{{ asset('images') }}/{{ $appointment->doctor->image }}" width="50px" style="border-radius: 50%;"></td>
                                 <td>{{ $appointment->doctor->name }}</td>
                                 <td>{{ $appointment->doctor->department->department }}</td>
                                 <td><a href="{{ route('appointment.show', [$appointment->user_id, $appointment->date]) }}"><button class="btn btn-success">Book Appointment</button></a></td>

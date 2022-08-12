@@ -6,6 +6,7 @@ use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,4 +43,7 @@ Route::group(['middleware' => ['auth', 'doctor']], function() {
 Route::group(['middleware' => ['auth', 'patient']], function() {
     Route::post('/book/appointment', [FrontendController::class, 'store'])->name('booking.appointment');
 	Route::get('/my-booking', [FrontendController::class, 'myBookings'])->name('my.booking');
+	Route::get('/user-profile', [ProfileController::class, 'index']);
+	Route::post('/user-profile', [ProfileController::class, 'store'])->name('profile.store');
+	Route::post('/profile-pic', [ProfileController::class, 'profilePic'])->name('profile.pic');
 });
