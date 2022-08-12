@@ -74,6 +74,7 @@ class FrontendController extends Controller
 
     private function checkBookingTimeInterval()
     {
+        return false;
         return Booking::orderby('id', 'desc')
             ->where('user_id', auth()->user()->id)
             ->whereDate('created_at', date('Y-m-d'))
