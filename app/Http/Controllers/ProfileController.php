@@ -20,7 +20,7 @@ class ProfileController extends Controller
         ]);
 
         User::query()
-            ->where('id',auth()->user()->id)
+            ->where('id', auth()->user()->id)
             ->update($request->except('_token'));
 
         return redirect()->back()->with('message', 'profile updated');

@@ -23,12 +23,16 @@
 
                 <!-- Body -->
                 <div class="card-body">
-                    <p>Name: {{ auth()->user()->name }}</p>
-                    <p>Email: {{ auth()->user()->email }}</p>
-                    <p>Address: {{ auth()->user()->address }}</p>
-                    <p>Telephone: {{ auth()->user()->phone_number }}</p>
-                    <p>Gender: {{ auth()->user()->gender }}</p>
-                    <p>About: {{ auth()->user()->description }}</p>
+
+                    <table>
+                        <tr><th class="align-top">Name</th><td class="pb-3">{{ auth()->user()->name }}</td></tr>
+                        <tr><th class="align-top">Email</th><td class="pb-3">{{ auth()->user()->email }}</td></tr>
+                        <tr><th class="align-top">Address</th><td class="pb-3">{{ auth()->user()->address }}</td></tr>
+                        <tr><th class="align-top pe-2">Telephone</th><td class="pb-3">{{ auth()->user()->phone_number }}</td></tr>
+                        <tr><th class="align-top">Gender</th><td class="pb-3">{{ ucfirst(auth()->user()->gender) }}</td></tr>
+                        <tr><th class="align-top">About</th><td class="pb-3">{{ auth()->user()->description }}</td></tr>
+                    </table>
+
                 </div>
 
             </div>
@@ -56,7 +60,7 @@
                         @csrf
 
                         <!-- Name -->
-                        <div class="form-group">
+                        <div class="form-group mb-3">
                             <label>Name</label>
                             <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" value="{{ auth()->user()->name }}">
                             @error('name')
@@ -67,19 +71,19 @@
                         </div>
 
                         <!-- Address -->
-                        <div class="form-group">
+                        <div class="form-group mb-3">
                             <label>Address</label>
                             <input type="text" name="address" class="form-control" value="{{ auth()->user()->address }}">
                         </div>
 
                         <!-- Phone Number -->
-                        <div class="form-group">
+                        <div class="form-group mb-3">
                             <label>Phone number</label>
                             <input type="text" name="phone_number" class="form-control" value="{{ auth()->user()->phone_number }}">
                         </div>
 
                         <!-- Gender -->
-                        <div class="form-group">
+                        <div class="form-group mb-3">
                             <label>Gender</label>
                             <select name="gender" class="form-control @error('gender') is-invalid @enderror">
                                 <option value="">select gender</option>
@@ -94,9 +98,9 @@
                         </div>
 
                         <!-- About -->
-                        <div class="form-group">
+                        <div class="form-group mb-3">
                             <label>About</label>
-                            <textarea name="description" class="form-control">{{ auth()->user()->description }}</textarea>
+                            <textarea name="description" class="form-control" rows="5">{{ auth()->user()->description }}</textarea>
                         </div>
 
                         <!-- Submit -->
